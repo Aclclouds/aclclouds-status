@@ -197,7 +197,7 @@ status-website:
     }
 
     main > header::after {
-      content: "GitHub Pages - Monitoring 24/7";
+      content: "GitHub Pages - Surveillance 24/7";
       display: inline-flex;
       align-items: center;
       min-height: 30px;
@@ -259,8 +259,14 @@ status-website:
 
     .f.changed h2 {
       margin: 0 !important;
-      font-size: 20px !important;
+      font-size: 0 !important;
       font-weight: 900 !important;
+    }
+
+    .f.changed h2::before {
+      content: "État en direct";
+      font-size: 20px !important;
+      line-height: 1.2;
     }
 
     form label {
@@ -277,6 +283,16 @@ status-website:
       border-color: transparent !important;
       color: #ffffff !important;
       box-shadow: 0 12px 24px rgba(26, 86, 219, 0.2);
+    }
+
+    #data_all + label {
+      font-size: 0 !important;
+    }
+
+    #data_all + label::after {
+      content: "Tout";
+      font-size: 13px;
+      line-height: 1;
     }
 
     table,
@@ -347,6 +363,19 @@ status-website:
     footer a {
       color: #93c5fd !important;
       font-weight: 800;
+    }
+
+    footer p {
+      margin: 0 !important;
+      font-size: 0 !important;
+      text-align: center;
+    }
+
+    footer p::before {
+      content: "Page de statut ACLClouds hébergée par GitHub Pages et alimentée par Upptime.";
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     @media (max-width: 760px) {
