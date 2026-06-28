@@ -1,31 +1,66 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: Aclclouds
+repo: aclclouds-status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
+  # ---- Services clients ----
+  - name: Panel (dash.aclclouds.com)
+    url: https://dash.aclclouds.com
+  - name: Site web (aclclouds.com)
+    url: https://aclclouds.com
+    expectedStatusCodes:
+      - 200
+      - 301
+      - 302
+  - name: phpMyAdmin
+    url: https://phpmyadmin.aclclouds.com
+  - name: Panel de test (staging)
+    url: https://testpanelaclclouds.aclclouds.com
+
+  # ---- Nodes Discord Bots (Wings) ----
+  - name: Wings1
+    url: https://nodes69.aclclouds.com:8080
+    expectedStatusCodes: [401]
+  - name: Wings2
+    url: https://nodes77.aclclouds.com:8080
+    expectedStatusCodes: [401]
+  - name: Wings3
+    url: https://nodes72.aclclouds.com:8080
+    expectedStatusCodes: [401]
+  - name: Wings4
+    url: https://nodes78.aclclouds.com:8080
+    expectedStatusCodes: [401]
+  - name: Wings Premium
+    url: https://nodes74.aclclouds.com:8080
+    expectedStatusCodes: [401]
+
+  # ---- Nodes Jeux / Minecraft (Game-Nodes) ----
+  - name: Game-Nodes 66
+    url: https://game-nodes66.aclclouds.com:8080
+    expectedStatusCodes: [401]
+  - name: Game-Nodes 67
+    url: https://game-nodes67.aclclouds.com:8080
+    expectedStatusCodes: [401]
+  - name: Game-Nodes 68
+    url: https://game-nodes68.aclclouds.com:8080
+    expectedStatusCodes: [401]
+  - name: Game-Nodes pve6
+    url: https://game-nodes-pve6.aclclouds.com:8080
+    expectedStatusCodes: [401]
+
+  # ---- Infrastructure ----
+  - name: Proxmox (cluster1)
+    url: https://cluster1.skybots.tech
+  - name: IA / Ollama
+    url: https://ollama.skybots.tech
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.aclclouds.com
+  logoUrl: https://skybots.tech/images/skybots.png
+  name: ACLClouds Status
+  introTitle: "Statut des services ACLClouds / SkyBots"
+  introMessage: "Surveillance en temps réel du panel, des nodes d'hébergement (bots, Minecraft, jeux) et de l'infrastructure. Page hébergée par GitHub, indépendante de notre infrastructure."
   navbar:
-    - title: Status
+    - title: Statut
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: Panel
+      href: https://dash.aclclouds.com
