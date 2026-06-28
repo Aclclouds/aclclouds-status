@@ -50,13 +50,12 @@ sites:
   # ---- Infrastructure ----
   - name: Proxmox (cluster1)
     url: https://cluster1.skybots.tech
-  - name: IA / Ollama
-    url: https://ollama.skybots.tech
 
 status-website:
   cname: status.aclclouds.com
   logoUrl: https://skybots.tech/images/skybots.png
   name: ACLClouds Status
+  theme: dark
   introTitle: "Statut des services ACLClouds / SkyBots"
   introMessage: "Surveillance en temps réel du panel, des nodes d'hébergement (bots, Minecraft, jeux) et de l'infrastructure. Page hébergée par GitHub, indépendante de notre infrastructure."
   navbar:
@@ -64,3 +63,20 @@ status-website:
       href: /
     - title: Panel
       href: https://dash.aclclouds.com
+  css: |
+    :root{
+      --body-background-color:#081124;
+      --body-text-color:#e8f0ff;
+      --card-background-color:#0f1d3acc;
+      --card-border-color:#1f3358;
+      --link-color:#4d9bff;
+    }
+    html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+    body{
+      background:radial-gradient(1200px 560px at 50% -10%, #16407f 0%, #0c2350 42%, #070f22 100%) no-repeat !important;
+      background-attachment:fixed !important;
+      min-height:100vh;
+    }
+    a{ color:#4d9bff; }
+    img[alt]{ filter:drop-shadow(0 6px 18px rgba(40,110,230,.35)); }
+    h1,h2,h3{ letter-spacing:.2px; }
