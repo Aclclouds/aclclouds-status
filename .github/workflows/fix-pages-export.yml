@@ -28,6 +28,20 @@ jobs:
           ref: gh-pages
           token: ${{ secrets.GH_PAT || github.token }}
 
+      - name: Checkout source data
+        uses: actions/checkout@v6
+        with:
+          ref: master
+          path: _source
+          token: ${{ secrets.GH_PAT || github.token }}
+
+      - name: Publish generated history data
+        run: |
+          rm -rf history
+          mkdir -p history
+          cp -R _source/history/. history/
+          rm -rf _source
+
       - name: Normalize generated URLs
         run: |
           node <<'NODE'
@@ -61,6 +75,30 @@ jobs:
             [/path:"https:\/\/status\.aclclouds\.com"/g, 'path:""'],
             [/path:'https:\/\/status\.aclclouds\.com'/g, "path:''"],
             [/"path":"https:\/\/status\.aclclouds\.com"/g, '"path":""'],
+            [
+              /https:\/\/raw\.githubusercontent\.com\/Aclclouds\/aclclouds-status\/master\/history\//g,
+              '/history/',
+            ],
+            [
+              /https:\/\/raw\.githubusercontent\.com\/Aclclouds\/aclclouds-status\/master\/graphs\//g,
+              '/graphs/',
+            ],
+            [
+              /https:\/\/raw\.githubusercontent\.com\/Aclclouds\/aclclouds-status\/master/g,
+              '',
+            ],
+            [
+              /"https:\/\/raw\.githubusercontent\.com"/g,
+              '""',
+            ],
+            [
+              /fetch\(`\$\{i\}\/\$\{r\}\/\$\{l\}\/master\/history\/summary\.json`\)/g,
+              'fetch("/history/summary.json")',
+            ],
+            [
+              /const o=`\$\{i\}\/\$\{r\}\/\$\{l\}\/master\/graphs`;/g,
+              'const o=`${w.path}/graphs`;',
+            ],
             [
               /https:\/\/raw\.githubusercontent\.com\/upptime\/upptime\/master\/assets\/upptime-icon\.svg/g,
               '/logo-192.png',

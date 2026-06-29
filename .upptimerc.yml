@@ -761,6 +761,328 @@ status-website:
       box-shadow: 0 12px 24px rgba(35, 104, 232, 0.22);
     }
 
+    .acl-status-overview {
+      display: grid;
+      gap: 18px;
+      padding: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    .acl-overall-card,
+    .acl-metric-card,
+    .acl-service-panel,
+    .acl-outage-panel {
+      border: 1px solid var(--acl-border);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: var(--acl-shadow);
+    }
+
+    .acl-overall-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      overflow: hidden;
+      padding: clamp(22px, 4vw, 34px);
+      border-radius: 26px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(239, 245, 255, 0.92)),
+        radial-gradient(circle at 92% 12%, rgba(35, 183, 239, 0.16), transparent 34%);
+    }
+
+    .acl-overall-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--acl-green);
+    }
+
+    .acl-overall-card[data-state="down"]::before {
+      background: var(--acl-red);
+    }
+
+    .acl-overall-card[data-state="degraded"]::before {
+      background: var(--acl-amber);
+    }
+
+    .acl-overall-eyebrow,
+    .acl-card-label,
+    .acl-section-kicker {
+      color: var(--acl-muted);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .acl-overall-title {
+      margin-top: 8px;
+      color: var(--acl-ink);
+      font-size: clamp(25px, 4vw, 40px);
+      font-weight: 950;
+      line-height: 1.05;
+    }
+
+    .acl-overall-copy {
+      max-width: 780px;
+      margin-top: 10px;
+      color: var(--acl-muted);
+      font-size: 15px;
+      font-weight: 720;
+      line-height: 1.65;
+    }
+
+    .acl-overall-pill {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 16px;
+      border: 1px solid rgba(18, 185, 129, 0.22);
+      border-radius: 999px;
+      background: rgba(18, 185, 129, 0.12);
+      color: #087a55;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .acl-overall-card[data-state="down"] .acl-overall-pill {
+      border-color: rgba(239, 68, 68, 0.22);
+      background: rgba(239, 68, 68, 0.12);
+      color: #b4232e;
+    }
+
+    .acl-overall-card[data-state="degraded"] .acl-overall-pill {
+      border-color: rgba(245, 158, 11, 0.28);
+      background: rgba(245, 158, 11, 0.14);
+      color: #965a00;
+    }
+
+    .acl-status-dot {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: currentColor;
+      box-shadow: 0 0 0 5px color-mix(in srgb, currentColor 16%, transparent);
+    }
+
+    .acl-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .acl-metric-card {
+      min-height: 132px;
+      padding: 18px;
+      border-radius: 22px;
+    }
+
+    .acl-card-value {
+      margin-top: 9px;
+      color: var(--acl-ink);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .acl-card-helper {
+      margin-top: 9px;
+      color: var(--acl-muted);
+      font-size: 13px;
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    .acl-service-panel,
+    .acl-outage-panel {
+      padding: 22px;
+      border-radius: 24px;
+    }
+
+    .acl-section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .acl-section-title {
+      margin-top: 4px;
+      color: var(--acl-ink);
+      font-size: clamp(21px, 3vw, 29px);
+      font-weight: 950;
+      line-height: 1.1;
+    }
+
+    .acl-section-note {
+      color: var(--acl-muted);
+      font-size: 13px;
+      font-weight: 760;
+      text-align: right;
+    }
+
+    .acl-service-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .acl-service-row {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) minmax(300px, 0.9fr);
+      gap: 18px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(16, 32, 63, 0.08);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(248, 251, 255, 0.95), rgba(255, 255, 255, 0.97));
+    }
+
+    .acl-service-main {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .acl-service-icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(16, 32, 63, 0.08);
+      border-radius: 13px;
+      background: #ffffff;
+      color: var(--acl-blue);
+      font-size: 18px;
+      font-weight: 950;
+      box-shadow: 0 8px 22px rgba(16, 32, 63, 0.08);
+    }
+
+    .acl-service-name {
+      overflow: hidden;
+      color: var(--acl-ink);
+      font-size: 15px;
+      font-weight: 950;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .acl-service-meta {
+      margin-top: 3px;
+      overflow: hidden;
+      color: var(--acl-muted);
+      font-size: 12px;
+      font-weight: 760;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .acl-service-side {
+      display: grid;
+      gap: 9px;
+    }
+
+    .acl-service-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 7px;
+    }
+
+    .acl-badge {
+      display: inline-flex;
+      min-height: 28px;
+      align-items: center;
+      gap: 6px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(35, 104, 232, 0.09);
+      color: var(--acl-blue);
+      font-size: 12px;
+      font-weight: 920;
+      white-space: nowrap;
+    }
+
+    .acl-badge-up {
+      background: rgba(18, 185, 129, 0.14);
+      color: #087a55;
+    }
+
+    .acl-badge-down {
+      background: rgba(239, 68, 68, 0.14);
+      color: #b4232e;
+    }
+
+    .acl-badge-degraded {
+      background: rgba(245, 158, 11, 0.18);
+      color: #965a00;
+    }
+
+    .acl-latency-track {
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(16, 32, 63, 0.08);
+    }
+
+    .acl-latency-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--acl-green), var(--acl-cyan));
+    }
+
+    .acl-latency-fill[data-speed="slow"] {
+      background: linear-gradient(90deg, var(--acl-amber), #f97316);
+    }
+
+    .acl-latency-fill[data-speed="bad"] {
+      background: linear-gradient(90deg, var(--acl-red), #fb7185);
+    }
+
+    .acl-outage-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .acl-outage-item,
+    .acl-empty-state {
+      padding: 14px;
+      border: 1px solid rgba(16, 32, 63, 0.08);
+      border-radius: 16px;
+      background: rgba(248, 251, 255, 0.86);
+      color: var(--acl-muted);
+      font-size: 13px;
+      font-weight: 760;
+      line-height: 1.5;
+    }
+
+    .acl-outage-item strong {
+      display: block;
+      color: var(--acl-ink);
+      font-size: 14px;
+      font-weight: 950;
+    }
+
+    .acl-private-note {
+      margin-top: 12px;
+      color: var(--acl-muted);
+      font-size: 12px;
+      font-weight: 730;
+      line-height: 1.55;
+    }
+
     footer {
       margin-top: 36px !important;
       padding: 28px 20px !important;
@@ -832,6 +1154,36 @@ status-website:
         grid-template-columns: 1fr;
       }
 
+      .acl-overall-card {
+        grid-template-columns: 1fr;
+        border-radius: 22px;
+      }
+
+      .acl-overall-pill {
+        width: fit-content;
+      }
+
+      .acl-metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .acl-section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .acl-section-note {
+        text-align: left;
+      }
+
+      .acl-service-row {
+        grid-template-columns: 1fr;
+      }
+
+      .acl-service-stats {
+        justify-content: flex-start;
+      }
+
       section,
       .live-status,
       .f.changed {
@@ -849,6 +1201,299 @@ status-website:
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 540px) {
+      .acl-metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .acl-service-panel,
+      .acl-outage-panel {
+        padding: 16px;
+        border-radius: 20px;
+      }
+
+      .acl-service-main {
+        align-items: flex-start;
+      }
+
+      .acl-service-name,
+      .acl-service-meta {
+        white-space: normal;
+      }
+    }
+
+  js: |
+    (function () {
+      const SUMMARY_URLS = [
+        "/history/summary.json",
+        "https://raw.githubusercontent.com/Aclclouds/aclclouds-status/master/history/summary.json"
+      ];
+      const HISTORY_BASE_URLS = [
+        "/history/",
+        "https://raw.githubusercontent.com/Aclclouds/aclclouds-status/master/history/"
+      ];
+      const STATUS_LABELS = {
+        up: "En ligne",
+        down: "Hors ligne",
+        degraded: "Dégradé"
+      };
+
+      const formatPercentNumber = (value) => {
+        const number = Number(String(value || "0").replace("%", ""));
+        return Number.isFinite(number) ? number : 0;
+      };
+
+      const formatPercent = (value) => `${formatPercentNumber(value).toFixed(2)} %`;
+      const formatMs = (value) => `${Math.round(Number(value) || 0)} ms`;
+      const average = (values) => {
+        const valid = values.map(Number).filter(Number.isFinite);
+        return valid.length ? valid.reduce((sum, value) => sum + value, 0) / valid.length : 0;
+      };
+      const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      })[char]);
+      const formatDate = (value) => {
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return "date inconnue";
+        return date.toLocaleString("fr-FR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      };
+      const formatDay = (value) => {
+        const date = new Date(`${value}T12:00:00`);
+        if (Number.isNaN(date.getTime())) return value;
+        return date.toLocaleDateString("fr-FR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric"
+        });
+      };
+      const classifySpeed = (time) => {
+        const ms = Number(time) || 0;
+        if (ms > 1500) return "bad";
+        if (ms > 800) return "slow";
+        return "good";
+      };
+      const serviceInitial = (name) => {
+        const clean = String(name || "S").replace(/\(.+?\)/g, "").trim();
+        return escapeHtml(clean.slice(0, 1).toUpperCase() || "S");
+      };
+
+      async function fetchFirst(urls) {
+        let lastError;
+        for (const url of urls) {
+          try {
+            const response = await fetch(`${url}${url.includes("?") ? "&" : "?"}v=${Date.now()}`, { cache: "no-store" });
+            if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+            return await response.json();
+          } catch (error) {
+            lastError = error;
+          }
+        }
+        throw lastError || new Error("Aucune source disponible");
+      }
+
+      async function fetchLastChecks(services) {
+        const entries = await Promise.allSettled(services.map(async (service) => {
+          for (const base of HISTORY_BASE_URLS) {
+            try {
+              const response = await fetch(`${base}${service.slug}.yml?v=${Date.now()}`, { cache: "no-store" });
+              if (!response.ok) continue;
+              const text = await response.text();
+              const lastUpdated = text.match(/lastUpdated:\s*([^\n]+)/);
+              const responseTime = text.match(/responseTime:\s*([0-9]+)/);
+              return [service.slug, {
+                lastUpdated: lastUpdated ? lastUpdated[1].trim() : null,
+                responseTime: responseTime ? Number(responseTime[1]) : null
+              }];
+            } catch (error) {
+              // Try next source.
+            }
+          }
+          return [service.slug, null];
+        }));
+
+        return Object.fromEntries(entries
+          .filter((entry) => entry.status === "fulfilled" && entry.value)
+          .map((entry) => entry.value));
+      }
+
+      function collectOutages(services) {
+        return services.flatMap((service) => Object.entries(service.dailyMinutesDown || {}).map(([date, minutes]) => ({
+          service: service.name,
+          date,
+          minutes: Number(minutes) || 0
+        }))).filter((item) => item.minutes > 0)
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 8);
+      }
+
+      function renderOverview(services, checks) {
+        if (!services.length) return "";
+
+        const down = services.filter((service) => service.status === "down").length;
+        const degraded = services.filter((service) => service.status === "degraded").length;
+        const up = services.length - down - degraded;
+        const state = down ? "down" : degraded ? "degraded" : "up";
+        const globalUptime = average(services.map((service) => formatPercentNumber(service.uptimeMonth || service.uptime)));
+        const averageLatency = average(services.map((service) => service.time));
+        const slowest = [...services].sort((a, b) => (Number(b.time) || 0) - (Number(a.time) || 0))[0];
+        const lastCheckDates = Object.values(checks || {}).map((check) => check && check.lastUpdated).filter(Boolean);
+        const lastCheck = lastCheckDates.length
+          ? new Date(Math.max(...lastCheckDates.map((date) => new Date(date).getTime())))
+          : null;
+        const title = state === "up"
+          ? "Tous les systèmes sont opérationnels"
+          : state === "down"
+            ? `${down} service${down > 1 ? "s" : ""} hors ligne`
+            : `${degraded} service${degraded > 1 ? "s" : ""} dégradé`;
+        const copy = state === "up"
+          ? "Le panel, les nodes Wings, les nodes jeux et l'infrastructure répondent correctement sur la dernière série de contrôles."
+          : "Une anomalie est détectée sur la dernière série de contrôles. Les détails par service sont disponibles ci-dessous.";
+
+        return `
+          <section class="acl-status-overview" aria-label="Synthèse du statut ACLClouds">
+            <div class="acl-overall-card" data-state="${state}">
+              <div>
+                <div class="acl-overall-eyebrow">Statut global</div>
+                <div class="acl-overall-title">${escapeHtml(title)}</div>
+                <div class="acl-overall-copy">${escapeHtml(copy)}</div>
+                <div class="acl-private-note">Données générées par GitHub Actions toutes les quelques minutes. Les métriques restent disponibles depuis la page publiée, même si le dépôt source est rendu privé ensuite.</div>
+              </div>
+              <div class="acl-overall-pill"><span class="acl-status-dot"></span>${escapeHtml(STATUS_LABELS[state])}</div>
+            </div>
+            <div class="acl-metric-grid">
+              <div class="acl-metric-card">
+                <div class="acl-card-label">Disponibilité 30 j</div>
+                <div class="acl-card-value">${globalUptime.toFixed(2)} %</div>
+                <div class="acl-card-helper">Moyenne de tous les services surveillés.</div>
+              </div>
+              <div class="acl-metric-card">
+                <div class="acl-card-label">Latence moyenne</div>
+                <div class="acl-card-value">${formatMs(averageLatency)}</div>
+                <div class="acl-card-helper">Temps de réponse moyen sur le dernier contrôle.</div>
+              </div>
+              <div class="acl-metric-card">
+                <div class="acl-card-label">Services en ligne</div>
+                <div class="acl-card-value">${up}/${services.length}</div>
+                <div class="acl-card-helper">${down ? `${down} hors ligne` : "Aucun service hors ligne"}${degraded ? `, ${degraded} dégradé` : ""}.</div>
+              </div>
+              <div class="acl-metric-card">
+                <div class="acl-card-label">Dernière vérification</div>
+                <div class="acl-card-value">${lastCheck ? lastCheck.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) : "—"}</div>
+                <div class="acl-card-helper">${lastCheck ? formatDate(lastCheck) : "En attente du prochain check."}${slowest ? ` Plus lent : ${escapeHtml(slowest.name)} (${formatMs(slowest.time)}).` : ""}</div>
+              </div>
+            </div>
+          </section>
+        `;
+      }
+
+      function renderServices(services, checks) {
+        const rows = services.map((service) => {
+          const check = checks[service.slug] || {};
+          const lastUpdated = check.lastUpdated ? formatDate(check.lastUpdated) : "Dernière vérification en cours";
+          const latency = Number(check.responseTime || service.time || 0);
+          const width = Math.max(8, Math.min(100, Math.round((latency / 2200) * 100)));
+          const statusClass = service.status === "down" ? "acl-badge-down" : service.status === "degraded" ? "acl-badge-degraded" : "acl-badge-up";
+          return `
+            <div class="acl-service-row">
+              <div class="acl-service-main">
+                <div class="acl-service-icon">${serviceInitial(service.name)}</div>
+                <div>
+                  <div class="acl-service-name">${escapeHtml(service.name)}</div>
+                  <div class="acl-service-meta">${escapeHtml(service.url)} · ${lastUpdated}</div>
+                </div>
+              </div>
+              <div class="acl-service-side">
+                <div class="acl-service-stats">
+                  <span class="acl-badge ${statusClass}"><span class="acl-status-dot"></span>${escapeHtml(STATUS_LABELS[service.status] || service.status)}</span>
+                  <span class="acl-badge">${formatPercent(service.uptimeDay)} sur 24 h</span>
+                  <span class="acl-badge">${formatPercent(service.uptimeWeek)} sur 7 j</span>
+                  <span class="acl-badge">${formatMs(latency)}</span>
+                </div>
+                <div class="acl-latency-track" aria-label="Latence ${formatMs(latency)}">
+                  <div class="acl-latency-fill" data-speed="${classifySpeed(latency)}" style="width:${width}%"></div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join("");
+
+        return `
+          <section class="acl-service-panel">
+            <div class="acl-section-head">
+              <div>
+                <div class="acl-section-kicker">Moniteurs</div>
+                <div class="acl-section-title">Services surveillés</div>
+              </div>
+              <div class="acl-section-note">Uptime, latence et dernière vérification en lecture directe des checks.</div>
+            </div>
+            <div class="acl-service-list">${rows}</div>
+          </section>
+        `;
+      }
+
+      function renderOutages(services) {
+        const outages = collectOutages(services);
+        const content = outages.length
+          ? `<ul class="acl-outage-list">${outages.map((outage) => `
+              <li class="acl-outage-item">
+                <strong>${escapeHtml(outage.service)}</strong>
+                ${formatDay(outage.date)} · ${outage.minutes} minute${outage.minutes > 1 ? "s" : ""} d'indisponibilité détectée
+              </li>
+            `).join("")}</ul>`
+          : `<div class="acl-empty-state">Aucune coupure détectée dans les données actuellement publiées. Les prochaines interruptions apparaîtront ici avec la date et la durée.</div>`;
+
+        return `
+          <section class="acl-outage-panel">
+            <div class="acl-section-head">
+              <div>
+                <div class="acl-section-kicker">Historique</div>
+                <div class="acl-section-title">Coupures récentes</div>
+              </div>
+              <div class="acl-section-note">Dates et durées calculées depuis les minutes d'arrêt Upptime.</div>
+            </div>
+            ${content}
+          </section>
+        `;
+      }
+
+      async function boot() {
+        if (document.querySelector(".acl-status-overview")) return;
+        const main = document.querySelector("main.container") || document.querySelector("main");
+        const header = main && main.querySelector("header");
+        if (!main || !header) return;
+
+        try {
+          const services = await fetchFirst(SUMMARY_URLS);
+          const checks = await fetchLastChecks(services);
+          const wrapper = document.createElement("div");
+          wrapper.className = "acl-status-suite";
+          wrapper.innerHTML = renderOverview(services, checks) + renderServices(services, checks) + renderOutages(services);
+          header.insertAdjacentElement("afterend", wrapper);
+        } catch (error) {
+          const fallback = document.createElement("section");
+          fallback.className = "acl-outage-panel";
+          fallback.innerHTML = '<div class="acl-section-title">Statut en cours de chargement</div><div class="acl-empty-state">Impossible de charger la synthèse avancée pour le moment. La liste Upptime classique reste disponible ci-dessous.</div>';
+          header.insertAdjacentElement("afterend", fallback);
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", boot);
+      } else {
+        boot();
+      }
+    })();
 
 i18n:
   locale: fr-FR
