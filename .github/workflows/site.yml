@@ -44,8 +44,6 @@ jobs:
           command: "site"
         env:
           GH_PAT: ${{ secrets.GH_PAT || github.token }}
-      - name: Fix generated asset URLs
-        run: node scripts/fix-status-export.js
       - uses: peaceiris/actions-gh-pages@v4
         name: GitHub Pages Deploy
         with:
