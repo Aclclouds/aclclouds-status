@@ -2,7 +2,7 @@
   {
     "name": "Panel (dash.aclclouds.com)",
     "url": "https://dash.aclclouds.com",
-    "icon": "https://icons.duckduckgo.com/ip3/dash.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "panel-dash-aclclouds-com",
     "status": "up",
     "uptime": "100.00%",
@@ -20,7 +20,7 @@
   {
     "name": "Site web (aclclouds.com)",
     "url": "https://aclclouds.com",
-    "icon": "https://icons.duckduckgo.com/ip3/aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "site-web-aclclouds-com",
     "status": "up",
     "uptime": "100.00%",
@@ -38,7 +38,7 @@
   {
     "name": "phpMyAdmin",
     "url": "https://phpmyadmin.aclclouds.com",
-    "icon": "https://icons.duckduckgo.com/ip3/phpmyadmin.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "php-my-admin",
     "status": "up",
     "uptime": "100.00%",
@@ -56,7 +56,7 @@
   {
     "name": "Panel de test (staging)",
     "url": "https://testpanelaclclouds.aclclouds.com",
-    "icon": "https://icons.duckduckgo.com/ip3/testpanelaclclouds.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "panel-de-test-staging",
     "status": "up",
     "uptime": "100.00%",
@@ -74,7 +74,7 @@
   {
     "name": "Wings1",
     "url": "https://nodes69.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/nodes69.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "wings1",
     "status": "up",
     "uptime": "100.00%",
@@ -92,7 +92,7 @@
   {
     "name": "Wings2",
     "url": "https://nodes77.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/nodes77.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "wings2",
     "status": "up",
     "uptime": "100.00%",
@@ -110,7 +110,7 @@
   {
     "name": "Wings3",
     "url": "https://nodes72.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/nodes72.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "wings3",
     "status": "up",
     "uptime": "100.00%",
@@ -128,7 +128,7 @@
   {
     "name": "Wings4",
     "url": "https://nodes78.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/nodes78.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "wings4",
     "status": "up",
     "uptime": "100.00%",
@@ -146,7 +146,7 @@
   {
     "name": "Wings Premium",
     "url": "https://nodes74.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/nodes74.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "wings-premium",
     "status": "up",
     "uptime": "100.00%",
@@ -164,7 +164,7 @@
   {
     "name": "Game-Nodes 66",
     "url": "https://game-nodes66.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/game-nodes66.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "game-nodes-66",
     "status": "up",
     "uptime": "100.00%",
@@ -182,7 +182,7 @@
   {
     "name": "Game-Nodes 67",
     "url": "https://game-nodes67.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/game-nodes67.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "game-nodes-67",
     "status": "up",
     "uptime": "100.00%",
@@ -200,7 +200,7 @@
   {
     "name": "Game-Nodes 68",
     "url": "https://game-nodes68.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/game-nodes68.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "game-nodes-68",
     "status": "up",
     "uptime": "100.00%",
@@ -218,7 +218,7 @@
   {
     "name": "Game-Nodes pve6",
     "url": "https://game-nodes-pve6.aclclouds.com:8080",
-    "icon": "https://icons.duckduckgo.com/ip3/game-nodes-pve6.aclclouds.com.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "game-nodes-pve6",
     "status": "up",
     "uptime": "100.00%",
@@ -236,7 +236,7 @@
   {
     "name": "Proxmox (cluster1)",
     "url": "https://cluster1.skybots.tech",
-    "icon": "https://icons.duckduckgo.com/ip3/cluster1.skybots.tech.ico",
+    "icon": "https://skybots.tech/images/skybots.png",
     "slug": "proxmox-cluster1",
     "status": "up",
     "uptime": "100.00%",

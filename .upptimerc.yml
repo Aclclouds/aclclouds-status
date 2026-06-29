@@ -5,55 +5,71 @@ sites:
   # ---- Services clients ----
   - name: Panel (dash.aclclouds.com)
     url: https://dash.aclclouds.com
+    icon: https://skybots.tech/images/skybots.png
   - name: Site web (aclclouds.com)
     url: https://aclclouds.com
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes:
       - 200
       - 301
       - 302
   - name: phpMyAdmin
     url: https://phpmyadmin.aclclouds.com
+    icon: https://skybots.tech/images/skybots.png
   - name: Panel de test (staging)
     url: https://testpanelaclclouds.aclclouds.com
+    icon: https://skybots.tech/images/skybots.png
 
   # ---- Nodes Discord Bots (Wings) ----
   - name: Wings1
     url: https://nodes69.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
   - name: Wings2
     url: https://nodes77.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
   - name: Wings3
     url: https://nodes72.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
   - name: Wings4
     url: https://nodes78.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
   - name: Wings Premium
     url: https://nodes74.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
 
   # ---- Nodes Jeux / Minecraft (Game-Nodes) ----
   - name: Game-Nodes 66
     url: https://game-nodes66.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
   - name: Game-Nodes 67
     url: https://game-nodes67.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
   - name: Game-Nodes 68
     url: https://game-nodes68.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
   - name: Game-Nodes pve6
     url: https://game-nodes-pve6.aclclouds.com:8080
+    icon: https://skybots.tech/images/skybots.png
     expectedStatusCodes: [401]
 
   # ---- Infrastructure ----
   - name: Proxmox (cluster1)
     url: https://cluster1.skybots.tech
+    icon: https://skybots.tech/images/skybots.png
 
 status-website:
   cname: status.aclclouds.com
   logoUrl: https://skybots.tech/images/skybots.png
+  logoHref: /
+  favicon: https://skybots.tech/images/skybots.png
   name: ACLClouds Status
   theme: light
   introTitle: "Statut des services ACLClouds"
