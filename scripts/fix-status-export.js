@@ -16,6 +16,15 @@ const TEXT_EXTENSIONS = new Set([
 ]);
 
 const replacements = [
+  [/<html lang=en>/g, '<html lang=fr>'],
+  [/<html lang="en">/g, '<html lang="fr">'],
+  [/Live Status/g, 'État en direct'],
+  [/All systems operational/g, 'Tous les systèmes sont opérationnels'],
+  [/Response Time/g, 'Temps de réponse'],
+  [/History/g, 'Historique'],
+  [/"Completed"/g, '"Terminée"'],
+  [/'Completed'/g, "'Terminée'"],
+  [/>Completed</g, '>Terminée<'],
   [/https?:\/\/status\.aclclouds\.com\/themes\//g, '/themes/'],
   [/https?:\/\/status\.aclclouds\.com\/global\.css/g, '/global.css'],
   [/path:"https:\/\/status\.aclclouds\.com"/g, 'path:""'],
