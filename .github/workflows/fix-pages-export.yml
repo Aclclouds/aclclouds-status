@@ -1,0 +1,106 @@
+name: Fix Pages Export
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fix-pages-export
+  cancel-in-progress: true
+
+jobs:
+  fix:
+    name: Normalize generated status page URLs
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          token: ${{ secrets.GH_PAT || github.token }}
+
+      - name: Normalize generated URLs
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const textExtensions = new Set([
+            '.css',
+            '.html',
+            '.js',
+            '.json',
+            '.map',
+            '.svg',
+            '.txt',
+            '.webmanifest',
+            '.xml',
+          ]);
+
+          const replacements = [
+            [/https?:\/\/status\.aclclouds\.com\/themes\//g, '/themes/'],
+            [/https?:\/\/status\.aclclouds\.com\/global\.css/g, '/global.css'],
+            [/path:"https:\/\/status\.aclclouds\.com"/g, 'path:""'],
+            [/path:'https:\/\/status\.aclclouds\.com'/g, "path:''"],
+            [/"path":"https:\/\/status\.aclclouds\.com"/g, '"path":""'],
+            [
+              /https:\/\/raw\.githubusercontent\.com\/upptime\/upptime\/master\/assets\/upptime-icon\.svg/g,
+              '/logo-192.png',
+            ],
+            [/https:\/\/icons\.duckduckgo\.com\/ip3\/[^"'`<>)\s]+?\.ico/g, '/logo-192.png'],
+          ];
+
+          function walk(directory) {
+            const files = [];
+            for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+              if (entry.name === '.git') continue;
+              const fullPath = path.join(directory, entry.name);
+              if (entry.isDirectory()) {
+                files.push(...walk(fullPath));
+              } else if (entry.isFile() && textExtensions.has(path.extname(entry.name))) {
+                files.push(fullPath);
+              }
+            }
+            return files;
+          }
+
+          let changedFiles = 0;
+          let replacementsCount = 0;
+
+          for (const file of walk(process.cwd())) {
+            const before = fs.readFileSync(file, 'utf8');
+            let after = before;
+
+            for (const [pattern, value] of replacements) {
+              after = after.replace(pattern, () => {
+                replacementsCount += 1;
+                return value;
+              });
+            }
+
+            if (after !== before) {
+              fs.writeFileSync(file, after);
+              changedFiles += 1;
+            }
+          }
+
+          console.log(`Normalized status export: ${changedFiles} files, ${replacementsCount} replacements.`);
+          NODE
+
+      - name: Commit patched export
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "ACLClouds Status Bot"
+            git config user.email "actions@github.com"
+            git add .
+            git commit -m "fix: normalize status page assets [skip ci]"
+            git push origin HEAD:gh-pages
+          else
+            echo "No generated URLs to normalize."
+          fi
