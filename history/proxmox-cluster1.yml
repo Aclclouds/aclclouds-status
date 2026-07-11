@@ -1,7 +1,7 @@
 url: https://cluster1.skybots.tech
-status: up
-code: 200
-responseTime: 409
-lastUpdated: 2026-07-11T07:28:14.888Z
+status: down
+code: 502
+responseTime: 10528
+lastUpdated: 2026-07-11T23:47:20.288Z
 startTime: 2026-06-28T21:33:22.855Z
 generator: Upptime <https://github.com/upptime/upptime>
